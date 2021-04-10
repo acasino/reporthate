@@ -1,0 +1,34 @@
+<mxfile>
+    <diagram id="Jxtier86EvJAZ9fjk0SW" name="Page-1">
+        <mxGraphModel dx="1281" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="2" target="3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="160" width="310" height="400" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="640" width="350" height="270" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="4" target="3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="450" y="160" width="310" height="400" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="&lt;h1&gt;Victim&lt;/h1&gt;&lt;p&gt;has_many :incidents&lt;br&gt;has_many :volunteers, through: :incidents&lt;br&gt;&lt;br&gt;______________&lt;br&gt;&lt;br&gt;email (string)&lt;br&gt;password_digest&lt;br&gt;name (string)&lt;br&gt;language (string)&lt;br&gt;preferred_contact_method (string)&lt;br&gt;contact_info (string)&lt;br&gt;contact_status (string)&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="190" width="260" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="&lt;h1&gt;Volunteer&lt;/h1&gt;&lt;p&gt;has_many :incidents&lt;br&gt;has_many :victims, through: :incidents&lt;br&gt;&lt;br&gt;_______________&lt;br&gt;&lt;br&gt;email (string)&lt;br&gt;password_digest&lt;br&gt;name (string)&lt;br&gt;language (string)&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="470" y="190" width="270" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="&lt;h1&gt;Incident&lt;/h1&gt;&lt;p&gt;belongs_to :victim&lt;br&gt;has_many :volunteers&lt;br&gt;&lt;br&gt;_____________&lt;br&gt;&lt;br&gt;description (text)&lt;br&gt;location (string)&lt;br&gt;time_occured (datetime)&lt;br&gt;victim_id (integer)&lt;br&gt;volunteer_id (integer)&lt;br&gt;request_translator (boolean)&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="270" y="660" width="300" height="230" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
