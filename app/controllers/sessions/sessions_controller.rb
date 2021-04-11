@@ -20,7 +20,7 @@ class Sessions::SessionsController < ApplicationController
         redirect_to root_path
     end
 
-    # def google_login
+    # def google_login  #for third party login
 
     # end
 
