@@ -2,15 +2,12 @@
 
 <h2>Welcome to your profile page.</h2>
 
-<span><strong>Your Email:</strong> <%= @victim.email %></span>
-<span><strong>Your Language:</strong> <%= @victim.language %></span>
-<span><strong>Your Preferred Contact Method:</strong> <%= @victim.preferred_contact_method %></span>
+<span><strong>Your Email:</strong> <%= @victim.email %></span><br>
+<span><strong>Your Language:</strong> <%= @victim.language %></span><br>
+<span><strong>Your Preferred Contact Method:</strong> <%= @victim.preferred_contact_method %></span><br>
 <span><strong>Your Preferred Contact Details:</strong> <%= @victim.contact_info %></span>
-
-
 <br>
 <br>
-
 <%= link_to "Edit your profile", edit_victim_path(@victim) %><br>
 
 <h2>Your Reported Incidents</h2>

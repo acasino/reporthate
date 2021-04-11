@@ -37,7 +37,7 @@ class Victims::UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:victim).permit(:name, :email, :password, :password_confirmation)
+        params.require(:victim).permit(:name, :email, :language, :preferred_contact_method, :contact_info, :password, :password_confirmation)
     end
 
     def set_victim
