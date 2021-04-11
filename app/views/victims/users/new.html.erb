@@ -3,3 +3,17 @@
 placeholder for errors here <br>
 
 
+<%= form_with model: @victim do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <br>
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+    <br>
+    <%= form.label :password %>
+    <%= form.text_field :password %>
+    <br>
+    <%= form.submit %>
+
+<% end %>
+
