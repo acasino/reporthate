@@ -15,7 +15,7 @@ class Victims::UsersController < ApplicationController
     end
 
     def index
-
+        # redirect_to victim_path(current_user.id) #setup sessions first
     end
 
     def show
@@ -31,6 +31,10 @@ class Victims::UsersController < ApplicationController
     end
 
     private
+
+    def user_params
+        params.require(:victim).permit(:name, :email, :password, :password_confirmation)
+    end
 
 
 
