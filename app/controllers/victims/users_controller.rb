@@ -17,7 +17,7 @@ class Victims::UsersController < ApplicationController
     end
 
     def index
-        # redirect_to victim_path(current_user.id) #setup sessions first
+        redirect_to victim_path(current_user.id) 
     end
 
     def show
