@@ -1,5 +1,7 @@
 class Victims::UsersController < ApplicationController
 
+    before_action :set_victim, only: [:show, :edit, :update]
+
     def new
         @victim = Victim.new
     end
@@ -23,7 +25,8 @@ class Victims::UsersController < ApplicationController
     end
 
     def update
-
+        @victim.update(user_params)
+        redirect_to victim_path(@victim)
     end
 
     def destroy
@@ -36,6 +39,9 @@ class Victims::UsersController < ApplicationController
         params.require(:victim).permit(:name, :email, :password, :password_confirmation)
     end
 
-
+    def set_victim
+        #setup if/else after session built
+        @victim = Victim.find_by(id: params[:id])
+    end
 
 end

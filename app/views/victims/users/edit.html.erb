@@ -1,0 +1,26 @@
+<h1>Edit Victim Profile</h1>
+
+<%= form_with model: @victim do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <br>
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+    <br>
+    <%= form.label :language %>
+    <%= form.text_field :language %>
+    <br>
+    <%= form.label :preferred_contact_method %>
+    <%= form.text_field :preferred_contact_method %>
+    <br>
+    <%= form.label :contact_info %>
+    <%= form.text_field :contact_info %>
+    <br>
+    <br>
+    <%= form.submit "Update Profile" %>
+
+<% end %>
+<br>
+<%= link_to "Return to Profile", victim_path(@victim) %>
+
+
