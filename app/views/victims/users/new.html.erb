@@ -1,7 +1,11 @@
 <h1>New Victim</h1>
-
-placeholder for errors here <br>
-
+<% if @victim.errors.any? %>
+    <ul>
+        <% @victim.errors.full_messages.each do |m| %>
+            <li class="error"><%= m %></li>
+        <% end %>
+    </ul>
+<% end %>
 
 <%= form_with model: @victim do |form| %>
     <%= form.label :name %>
@@ -12,6 +16,7 @@ placeholder for errors here <br>
     <br>
     <%= form.label :password %>
     <%= form.text_field :password %>
+    <br>
     <br>
     <%= form.submit %>
 
