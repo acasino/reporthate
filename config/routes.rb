@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root 'welcome#index'
+
   resources :incidents
   resources :volunteers
   resources :victims
