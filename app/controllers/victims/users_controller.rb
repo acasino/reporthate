@@ -30,7 +30,8 @@ class Victims::UsersController < ApplicationController
     end
 
     def destroy
-
+        @victim.destroy
+        redirect_to victim_path(@victim)
     end
 
     private

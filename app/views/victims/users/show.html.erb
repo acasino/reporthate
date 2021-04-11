@@ -1,0 +1,17 @@
+<h1>Hello <%= @victim.name %></h1>
+
+<h2>Welcome to your profile page.</h2>
+
+<span><strong>Your Email:</strong> <%= @victim.email %></span>
+
+<br>
+<br>
+
+<%= link_to "Edit your profile", edit_victim_path(@victim) %><br>
+
+<h2>Your Reported Incidents</h2>
+    <ul>
+
+    </ul>
+
+<p><%= link_to "Delete Your Profile", victim_path, method: "delete", data: { confirm: "Are you sure you want to delete your profile?" } %></p>
