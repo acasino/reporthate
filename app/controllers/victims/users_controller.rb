@@ -1,6 +1,6 @@
 class Victims::UsersController < ApplicationController
 
-    before_action :set_victim, only: [:show, :edit, :update]
+    before_action :set_victim, only: [:show, :edit, :update, :destroy]
 
     def new
         @victim = Victim.new
@@ -31,7 +31,7 @@ class Victims::UsersController < ApplicationController
 
     def destroy
         @victim.destroy
-        redirect_to victim_path(@victim)
+        redirect_to root_path
     end
 
     private
