@@ -3,6 +3,10 @@
 <h2>Welcome to your profile page.</h2>
 
 <span><strong>Your Email:</strong> <%= @victim.email %></span>
+<span><strong>Your Language:</strong> <%= @victim.language %></span>
+<span><strong>Your Preferred Contact Method:</strong> <%= @victim.preferred_contact_method %></span>
+<span><strong>Your Preferred Contact Details:</strong> <%= @victim.contact_info %></span>
+
 
 <br>
 <br>
@@ -15,3 +19,5 @@
     </ul>
 
 <p><%= link_to "Delete Your Profile", victim_path, method: "delete", data: { confirm: "Are you sure you want to delete your profile?" } %></p>
+
+
