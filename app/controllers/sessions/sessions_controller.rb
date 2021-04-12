@@ -5,9 +5,11 @@ class Sessions::SessionsController < ApplicationController
         @volunteer = Volunteer.find_by(email: params[:email])
         if @victim && @victim.authenticate(params[:password])
             session[:user_id] = @victim.id
+            session[:user_type] = :victim
             redirect_to victim_path(@victim)
         elsif @volunteer && @volunteer.authenticate(params[:password])
             session[:user_id] = @volunteer.id
+            session[:user_type] = :volunteer
             redirect_to volunteer_path(@volunteer)
         else
             flash[:error] = "Incorrect Username or Password"
