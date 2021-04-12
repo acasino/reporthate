@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Reporthate</title>
+    <title>ReportHate</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -16,7 +16,7 @@
             <% if is_volunteer? %>
               <%= link_to "Home", volunteer_path(@current_user) %> |
             <% end %>
-            <% if is_needy? %>
+            <% if is_victim? %>
               <%= link_to "Home", victim_path(@current_user) %> |
             <% end %>
             <a href="/logout">Log Out</a>
@@ -27,6 +27,11 @@
           <% end %>
         </nav>
 
+        <%= yield %>
 
+        <div class="footer">
+        <br>
+        <p>Report Hate @2021</p>
+        </div>
   </body>
 </html>
