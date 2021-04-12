@@ -42,8 +42,12 @@ class Volunteers::UsersController < ApplicationController
     end
 
     def set_volunteer
-        #setup if/else after session built for current_user
-        @volunteer = Volunteer.find_by(id: params[:id])
+        if current_user != Volunteer.find_by(id: params[:id])
+            flash[:error] = "Oops! Something went wrong"
+            redirect_to login_path        
+        else 
+            @volunteer = Volunteer.find_by(id: params[:id])
+        end
     end
 
 end
