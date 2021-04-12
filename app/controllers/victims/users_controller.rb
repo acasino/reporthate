@@ -41,7 +41,7 @@ class Victims::UsersController < ApplicationController
     end
 
     def set_victim
-        #setup if/else after session built
+        #setup if/else after session built for current_user
         @victim = Victim.find_by(id: params[:id])
     end
 
