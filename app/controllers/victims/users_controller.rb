@@ -10,6 +10,7 @@ class Victims::UsersController < ApplicationController
         @victim = Victim.new(user_params)
         if @victim.save
             session[:user_id] = @victim.id
+            session[:user_type] = :victim
             redirect_to victim_path(@victim)
         else
             render :new

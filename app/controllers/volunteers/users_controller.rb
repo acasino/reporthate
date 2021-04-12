@@ -10,6 +10,7 @@ class Volunteers::UsersController < ApplicationController
         @volunteer = Volunteer.new(user_params)
         if @volunteer.save
             session[:user_id] = @volunteer.id
+            session[:user_type] = :volunteer
             redirect_to volunteer_path(@volunteer)
         else
             render :new
