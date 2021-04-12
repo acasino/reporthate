@@ -1,0 +1,19 @@
+<h1>Hello <%= @volunteer.name %></h1>
+
+<h2>Welcome to your profile page.</h2>
+
+<span><strong>Your Email:</strong> <%= @volunteer.email %></span><br>
+<span><strong>Your Language:</strong> <%= @volunteer.language %></span><br>
+
+<br>
+<br>
+<%= link_to "Edit your profile", edit_volunteer_path(@volunteer) %><br>
+
+<h2>Your Volunteered Incidents</h2>
+    <ul>
+
+    </ul>
+
+<p><%= link_to "Delete Your Profile", volunteer_path, method: "delete", data: { confirm: "Are you sure you want to delete your profile?" } %></p>
+
+

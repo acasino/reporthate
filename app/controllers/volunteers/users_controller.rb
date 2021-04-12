@@ -37,7 +37,7 @@ class Volunteers::UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:volunteer).permit(:name, :email, :language, :preferred_contact_method, :contact_info, :password, :password_confirmation)
+        params.require(:volunteer).permit(:name, :email, :language, :password, :password_confirmation)
     end
 
     def set_volunteer

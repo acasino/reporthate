@@ -1,0 +1,18 @@
+<h1>Edit Volunteer Profile</h1>
+
+<%= form_with model: @volunteer do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <br>
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+    <br>
+    <%= form.label :language %>
+    <%= form.text_field :language %>
+    <br>
+    <br>
+    <%= form.submit "Update Profile" %>
+
+<% end %>
+<br>
+<%= link_to "Return to Profile", volunteer_path(@volunteer) %>

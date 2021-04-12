@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :incidents
 
-  resources :volunteers
+  resources :volunteers, controller: 'volunteers/users', path: 'volunteer', except: [:index]
 
   resources :victims, controller: 'victims/users', path: 'victim', except: [:index] do 
     resource :incidents, controller: 'victims/incidents'
