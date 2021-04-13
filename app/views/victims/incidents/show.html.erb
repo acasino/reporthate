@@ -1,16 +1,6 @@
-<h1>Hello <%= @victim.name %></h1>
+<%# Should this be included? %>
 
-<h2>Welcome to your profile page.</h2>
-
-<span><strong>Your Email:</strong> <%= @victim.email %></span><br>
-<span><strong>Your Language:</strong> <%= @victim.language %></span><br>
-<span><strong>Your Preferred Contact Method:</strong> <%= @victim.preferred_contact_method %></span><br>
-<span><strong>Your Preferred Contact Details:</strong> <%= @victim.contact_info %></span>
-<br>
-<br>
-<%= link_to "Edit your profile", edit_victim_path(@victim) %><br>
-
-<h2>Your Reported Incidents</h2>
+<h2>Your Reported Incident</h2>
     <ul>
     <% if @victim.incidents.present? %>
         <% @victim.incidents.each do |incident| %>
@@ -30,7 +20,5 @@
         <li>No Reports Created</li>
       <% end %> 
     </ul>
-
-<p><%= link_to "Delete Your Profile", victim_path, method: "delete", data: { confirm: "Are you sure you want to delete your profile?" } %></p>
 
 

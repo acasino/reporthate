@@ -16,6 +16,7 @@ class Victims::IncidentsController < ApplicationController
         @victim.incidents.build(incident_params)
         if @victim.save
             redirect_to victim_path(@victim)
+            # redirect_to victim_incidents_path(@victim)
         else
             render :new
         end
@@ -24,7 +25,8 @@ class Victims::IncidentsController < ApplicationController
 
     def show
         #update incident; what 
-        redirect_to victim_incidents_path(@victim)
+        redirect_to victim_path(@victim)
+        # redirect_to victim_incidents_path(@victim)
     end
 
     ### TEST
@@ -43,7 +45,8 @@ class Victims::IncidentsController < ApplicationController
     def update
         incident = Incident.find_by(id: params[:id])
         incident.update(incident_params)
-        redirect_to victim_incidents_path(@victim)
+        redirect_to victim_path(@victim)
+        # redirect_to victim_incidents_path(@victim)
     end
 
     def destroy
