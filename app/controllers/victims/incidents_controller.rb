@@ -23,15 +23,27 @@ class Victims::IncidentsController < ApplicationController
     end
 
     def show
-        redirect_to victim_path(@victim)
+        #update incident; what 
+        redirect_to victim_incidents_path(@victim)
     end
 
+    ### TEST
     def edit
-
+        if params[:victim_id]
+            if @victim.nil?
+                redirect_to login_path, flash: { error: "Incident not found. Please login"}
+            else
+                @victim = Victim.find_by(id: params[:victim_id])
+                @incident = @victim.incidents.build(user_id: current_user.id)
+            end
+        end
     end
 
+    ### NEED TO TEST
     def update
-
+        incident = Incident.find_by(id: params[:id])
+        incident.update(incident_params)
+        redirect_to victim_incidents_path(@victim)
     end
 
     def destroy
