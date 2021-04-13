@@ -8,10 +8,7 @@
     </ul>
 <% end %>
 
-<%= form_with model: @incident do |form| %>
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-    <br>
+<%= form_with url: victim_incidents_path do |form| %>
     <%= form.label :location %>
     <%= form.text_field :location %>
     <br>
@@ -19,13 +16,16 @@
     <%= form.datetime_local_field :time_occurred %>
     <br>
     <%= form.label :request_translator %>
-    <%= form.select :request_translator, [[YES], [NO]] %>
+    <%= form.select :request_translator, [["YES"], ["NO"]] %>
     <br>
     <%= form.label :contact_status %>
     <%= form.text_field :contact_status %>
     <br>
     <%= form.label :language %>
     <%= form.text_field :language %>
+    <br>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
     <br>
     <br>
     <%= form.submit %>

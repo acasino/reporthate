@@ -5,7 +5,7 @@ class Victims::IncidentsController < ApplicationController
         # if params[:victim_id] && @victim.incidents.exists?
         #     redirect_to victim_path(@victim), flash: { error: "You've already created this incident"}
         # else
-            @incident = Incident.new()
+            @incident = Incident.new
             # @incidents = @victim.incidents
         # end
     end
