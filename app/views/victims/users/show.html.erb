@@ -12,7 +12,19 @@
 
 <h2>Your Reported Incidents</h2>
     <ul>
+    <% if @victim.incidents.present? %>
+        <% @victim.incidents.each do |incident| %>
+          <li>
+            Location: <%= incident.location %><br>
+            Occurred: <%= incident.time_occurred %><br>
+            Contact Status: <%= incident.contact_status %>
+            <%# Volunteer (if applicable): <%= incident.find_volunteer.name %> 
 
+          </li>
+        <% end %>
+      <% else %>
+        <li>No Items have been donated</li>
+      <% end %> 
     </ul>
 
 <p><%= link_to "Delete Your Profile", victim_path, method: "delete", data: { confirm: "Are you sure you want to delete your profile?" } %></p>
