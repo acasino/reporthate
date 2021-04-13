@@ -1,5 +1,6 @@
 class Volunteers::IncidentsController < ApplicationController
-
+    include VolunteersHelper
+    
     def new
 
     end
