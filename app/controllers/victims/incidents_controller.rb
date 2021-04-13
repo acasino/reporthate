@@ -11,6 +11,12 @@ class Victims::IncidentsController < ApplicationController
     end
 
     def create
+        @victim.incidents.build(incident_params)
+        if @victim.save
+            redirect_to victim_path(@victim)
+        else
+            render :new
+        end
 
     end
 
