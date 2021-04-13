@@ -7,9 +7,11 @@ Rails.application.routes.draw do
 
   get '/logout', to: 'sessions/sessions#logout', as: 'logout'
 
-  resources :incidents
+  # resources :incidents
 
-  resources :volunteers, controller: 'volunteers/users', path: 'volunteer', except: [:index]
+  resources :volunteers, controller: 'volunteers/users', path: 'volunteer', except: [:index] do
+    resource :incidents, controller: 'volunteers/incidents'
+  end
 
   resources :victims, controller: 'victims/users', path: 'victim', except: [:index] do 
     resource :incidents, controller: 'victims/incidents'
