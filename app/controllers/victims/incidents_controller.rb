@@ -50,7 +50,7 @@ class Victims::IncidentsController < ApplicationController
             flash[:error] = "Something went wrong"
             redirect_to victim_path(current_user.id)
         else
-            @victim = Victim.find_by(id: params[:needy_id])
+            @victim = Victim.find_by(id: params[:victim_id])
         end
     end
 
