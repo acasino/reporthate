@@ -1,6 +1,8 @@
 class Victims::IncidentsController < ApplicationController
     include VictimsHelper
 
+    before_action :verify_user
+
     def new
         # if params[:victim_id] && @victim.incidents.exists?
         #     redirect_to victim_path(@victim), flash: { error: "You've already created this incident"}
@@ -40,7 +42,7 @@ class Victims::IncidentsController < ApplicationController
     private
 
     def incident_params
-
+        params.permit(:description, :location, :time_occurred, :request_translator, :contact_status, :language, :volunteer_id, :victim_id)
     end
 
     def verify_user
