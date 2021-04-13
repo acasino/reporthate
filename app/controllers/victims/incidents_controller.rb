@@ -15,7 +15,7 @@ class Victims::IncidentsController < ApplicationController
     end
 
     def show
-
+        redirect_to victim_path(@victim)
     end
 
     def edit
@@ -27,7 +27,8 @@ class Victims::IncidentsController < ApplicationController
     end
 
     def destroy
-
+        @victim.incidents.destroy
+        redirect_to victim_path(@victim)
     end
 
     private
@@ -37,7 +38,12 @@ class Victims::IncidentsController < ApplicationController
     end
 
     def verify_user
-
+        if current_user != Victim.find_by(id: params[:victim_id])
+            flash[:error] = "Something went wrong"
+            redirect_to victim_path(current_user.id)
+        else
+            @victim = Victim.find_by(id: params[:needy_id])
+        end
     end
 
 end
