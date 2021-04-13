@@ -3,6 +3,7 @@ class Volunteer < ApplicationRecord
 
     has_many :incidents
     has_many :victims, through: :incidents
+    accepts_nested_attributes_for :incidents
 
     validates :name, :email, presence: true
     validates :email, uniqueness: { case_sensitive: false}
