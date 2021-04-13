@@ -1,1 +1,31 @@
-<h1> new </h1>
+<h1> Victim: Edit Reported Incident </h1>
+
+<%= form_with url: victim_incidents_path, method: "patch" do |form| %>
+  <input type="hidden" name="incident[victim_id]" value="<%= @victim.id %>">
+
+    <%= form.label :location %>
+    <%= form.text_field :location %>
+    <br>
+    <%= form.label :time_occurred %>
+    <%= form.datetime_local_field :time_occurred %>
+    <br>
+    <%= form.label :request_translator %>
+    <%= form.select :request_translator, [["YES"], ["NO"]] %>
+    <br>
+    <%= form.label :contact_status %>
+    <%= form.text_field :contact_status %>
+    <br>
+    <%= form.label :language %>
+    <%= form.text_field :language %>
+    <br>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+    <br>
+    <br>
+    <%= form.submit %>
+
+<% end %>
+
+<br>
+<%= link_to "Back to your profile", victim_path(@victim) %><br>
+<%= link_to "Delete Your Incident", victim_incidents_path, method: "delete", data: { confirm: "Are you sure you want to delete your reported incident?" }, class: "plain" %>
