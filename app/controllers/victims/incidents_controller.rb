@@ -2,12 +2,12 @@ class Victims::IncidentsController < ApplicationController
     include VictimsHelper
 
     def new
-        if params[:victim_id] && @victim.incidents.exists?
-            redirect_to victim_path(@victim), flash: { error: "You've already created this incident"}
-        else
+        # if params[:victim_id] && @victim.incidents.exists?
+        #     redirect_to victim_path(@victim), flash: { error: "You've already created this incident"}
+        # else
             @incident = Incident.new()
-            @incidents = @victim.incidents
-        end
+            # @incidents = @victim.incidents
+        # end
     end
 
     def create

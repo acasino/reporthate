@@ -1,0 +1,33 @@
+<h1> Victim: Report New Incident </h1>
+
+<% if @incident.errors.any? %>
+    <ul>
+        <% @incident.errors.full_messages.each do |m| %>
+            <li class="error"><%= m %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= form_with model: @incident do |form| %>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+    <br>
+    <%= form.label :location %>
+    <%= form.text_field :location %>
+    <br>
+    <%= form.label :time_occurred %>
+    <%= form.datetime_local_field :time_occurred %>
+    <br>
+    <%= form.label :request_translator %>
+    <%= form.select :request_translator, [[YES], [NO]] %>
+    <br>
+    <%= form.label :contact_status %>
+    <%= form.text_field :contact_status %>
+    <br>
+    <%= form.label :language %>
+    <%= form.text_field :language %>
+    <br>
+    <br>
+    <%= form.submit %>
+
+<% end %>
