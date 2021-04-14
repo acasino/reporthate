@@ -17,14 +17,33 @@ class Sessions::SessionsController < ApplicationController
         end
     end
 
+    def omniauth
+        byebug
+        user_email = request.env['omniauth.auth']['info']['email']
+        user_name = request.env['omniauth.auth']['info']['name']
+        @volunteer = Volunteer.find_or_create_by(email: user_email) do |user|
+          user.name = user_name
+          user.password = SecureRandom.hex
+        end
+        if @volunteer.valid?
+            session[:user_id] = @volunteer.id
+            session[:user_type] = :volunteer
+            redirect_to volunteer_path(@volunteer)
+        else
+        render :new
+        end
+
+    end
+
     def logout
         session.clear
         redirect_to root_path
     end
 
-    # def google_login  #for third party login
+    private 
 
-    # end
-
+    def auth
+        request.env['omniauth.auth']
+    end
 
 end

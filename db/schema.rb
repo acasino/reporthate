@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_12_062452) do
+ActiveRecord::Schema.define(version: 2021_04_14_064416) do
 
   create_table "incidents", force: :cascade do |t|
     t.text "description"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 2021_04_12_062452) do
     t.string "contact_status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "uid"
+    t.string "provider"
   end
 
   create_table "volunteers", force: :cascade do |t|
@@ -45,6 +47,8 @@ ActiveRecord::Schema.define(version: 2021_04_12_062452) do
     t.string "language"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "uid"
+    t.string "provider"
   end
 
   add_foreign_key "incidents", "victims"
