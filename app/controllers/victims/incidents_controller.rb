@@ -4,9 +4,10 @@ class Victims::IncidentsController < ApplicationController
     before_action :verify_user
     before_action :set_incident, only: [:show, :edit, :update, :destroy]
 
-    def index
-        @incidents = @victim.incidents
-    end
+    # def index
+    #     byebug
+    #     @incidents = @victim.incidents
+    # end
 
     def new
         # if params[:victim_id] && @victim.incidents.exists?
@@ -19,10 +20,10 @@ class Victims::IncidentsController < ApplicationController
     end
 
     def create
-        @victim.incidents.build(incident_params)
-        if @victim.save
-            redirect_to victim_path(@victim)
-            # redirect_to victim_incidents_path(@victim)
+        incident = @victim.incidents.build(incident_params)
+        if incident.save
+            # redirect_to victim_path(@victim)
+            redirect_to victim_incidents_path(incident)
         else
             render :new
         end
@@ -31,7 +32,12 @@ class Victims::IncidentsController < ApplicationController
 
     def show
         # redirect_to victim_path(@victim)
-        redirect_to victim_incidents_path(@victim)
+        @victim = Victim.find_by(id: params[:victim_id])
+        if @victim 
+            redirect_to victim_incidents_path(@victim.id)
+        else
+            redirect_to login_path
+        end
     end
 
     ### TEST
@@ -49,7 +55,7 @@ class Victims::IncidentsController < ApplicationController
     def edit
     end
 
-    ### NEED TO TEST
+    ### TEST
     def update
         #need to find incident but it's nested
         # incident = Incident.find_by(id: params[:id])
