@@ -1,5 +1,6 @@
 <h2>Your Reported Incident</h2>
     <ul>
+    <%byebug%>
     <% if @incident.present? %>
             Location: <%= @incident.location %><br>
             Occurred: <%= @incident.time_occurred %><br>
@@ -12,4 +13,5 @@
       <% end %> 
     </ul>
 	
-<%= link_to "Edit Incident Details", edit_victim_incidents_path(@incident) %><br>
+    <%# ### ISSUE: USING @VICTIM %>
+<%# <%= link_to "Edit Incident Details", edit_victim_incidents_path(@victim) %>

@@ -55,6 +55,7 @@ class Victims::IncidentsController < ApplicationController
         # incident = Incident.find_by(id: params[:id])
         # incident.update(incident_params)
         @incident.update(incident_params)
+        byebug
         redirect_to victim_path(@victim)
         # redirect_to victim_incidents_path(@victim)
     end
@@ -98,8 +99,8 @@ class Victims::IncidentsController < ApplicationController
 
     def set_incident
         # @victim = Victim.find_by(id: params[:victim_id]) ###### Review
-        @incident = @victim.incidents.find(params[:incident_id])
-        # @incident = @victim.incidents.find(params[:id])
+        # @incident = @victim.incidents.find(params[:incident_id])
+        @incident = @victim.incidents.find(params[:id])
 
     end
 
