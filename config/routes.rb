@@ -6,18 +6,27 @@ Rails.application.routes.draw do
 
   get '/login', to: 'sessions/sessions#login', as: 'login'
   post '/login', to: 'sessions/sessions#create'
-
   get '/logout', to: 'sessions/sessions#logout', as: 'logout'
 
   # resources :incidents
 
-  resources :volunteers, controller: 'volunteers/users', path: 'volunteer', except: [:index] do
-    resource :incidents, controller: 'volunteers/incidents'
+  resources :volunteers, except: [:index] do
+    resource :incidents, only: [:index, :new, :create]
+  end
+  
+  get "/victims/:victim_id/incidents", to: "victims/incidents#index"
+
+  resources :victims, controller: 'victims/users' do 
+    resource :incidents, controller: 'victims/incidents', shallow: true
   end
 
-  resources :victims, controller: 'victims/users', path: 'victim', except: [:index] do 
-    resource :incidents, controller: 'victims/incidents'
-  end
+  # resources :volunteers, controller: 'volunteers/users', path: 'volunteer', except: [:index] do
+  #   resource :incidents, controller: 'volunteers/incidents'
+  # end
+
+  # resources :victims, controller: 'victims/users', path: 'victim', except: [:index] do 
+  #   resource :incidents, controller: 'victims/incidents'
+  # end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

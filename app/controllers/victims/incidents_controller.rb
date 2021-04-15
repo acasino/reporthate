@@ -4,40 +4,33 @@ class Victims::IncidentsController < ApplicationController
     before_action :verify_user
     before_action :set_incident, only: [:show, :edit, :update, :destroy]
 
-    # def index
-    #     byebug
-    #     @incidents = @victim.incidents
-    # end
+    def index
+        @incidents = @victim.incidents
+    end
 
     def new
-        # if params[:victim_id] && @victim.incidents.exists?
-        #     redirect_to victim_path(@victim), flash: { error: "You've already created this incident"}
-        # else
-            # @incident = Incident.new
+        if params[:victim_id] && @victim = Victim.find_by(id: params[:victim_id])
             @incident = @victim.incidents.build
+        else
+            @incident = Incident.new
+            # @incident = @victim.incidents.build
             # @incidents = @victim.incidents
-        # end
+        end
     end
 
     def create
-        incident = @victim.incidents.build(incident_params)
-        if incident.save
-            # redirect_to victim_path(@victim)
-            redirect_to victim_incidents_path(incident)
+        @incident = @victim.incidents.build(incident_params)
+        if @incident.save
+            redirect_to victim_path(@incident.victim)
+            # redirect_to victim_incidents_path(@victim)
         else
             render :new
         end
-
     end
 
     def show
         # redirect_to victim_path(@victim)
-        @victim = Victim.find_by(id: params[:victim_id])
-        if @victim 
-            redirect_to victim_incidents_path(@victim.id)
-        else
-            redirect_to login_path
-        end
+        redirect_to victim_incidents_path(@victim)
     end
 
     ### TEST
@@ -72,20 +65,32 @@ class Victims::IncidentsController < ApplicationController
 
     private
 
+    # def incident_params
+    #     params.permit(:description, :location, :time_occurred, :request_translator, :contact_status, :language, :volunteer_id, :victim_id)
+    # end
+
     def incident_params
-        params.permit(:description, :location, :time_occurred, :request_translator, :contact_status, :language, :volunteer_id, :victim_id)
+        params.require(:incident).permit(:description, :location, :time_occurred, :request_translator, :contact_status, :language, :volunteer_id, :victim_id)
     end
 
     # def get_victim
     #     @victim = Victim.find(params[:victim_id])
     # end
 
+    # def verify_user
+    #     if current_user != Victim.find_by(id: params[:victim_id])
+    #         flash[:error] = "Something went wrong"
+    #         redirect_to victim_path(current_user.id)
+    #     else
+    #         @victim = Victim.find_by(id: params[:victim_id])
+    #     end
+    # end
+
     def verify_user
-        if current_user != Victim.find_by(id: params[:victim_id])
-            flash[:error] = "Something went wrong"
-            redirect_to victim_path(current_user.id)
-        else
-            @victim = Victim.find_by(id: params[:victim_id])
+        @victim = Victim.find_by(id: params[:victim_id])
+        if !@victim || current_user != @victim
+            flash[:error] = "Oops! Something went wrong"
+            redirect_to login_path
         end
     end
 

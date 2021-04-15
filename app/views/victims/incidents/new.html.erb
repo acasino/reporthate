@@ -8,7 +8,8 @@
     </ul>
 <% end %>
 
-<%= form_with url: victim_incidents_path do |form| %>
+<%# <%= form_with url: victim_incidents_path do |form| %> 
+<%= form_with model: [@victim, @incident], url: victim_incidents_path do |form| %>
     <%= form.label :location %>
     <%= form.text_field :location %>
     <br>
