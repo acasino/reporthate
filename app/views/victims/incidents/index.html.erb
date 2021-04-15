@@ -9,12 +9,16 @@
             Volunteer Contact Status: <%= incident.contact_status %><br>
             Preferred Langauge: <%= incident.language %><br>
             Description:  <%= incident.description %><br>
-
             <%# Volunteer (if applicable): <%= incident.find_volunteer.name %> 
+            <%# ##### ISSUE %>
+            <%= link_to "View Incident", victim_incidents_path(@victim) %><br>
 
           </li>
         <% end %>
       <% else %>
         <li>No Reports Created</li>
+        <a href="incidents/new">Create New Incident Report</a><br>
       <% end %> 
     </ul>
+
+

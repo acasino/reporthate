@@ -97,7 +97,7 @@ class Victims::IncidentsController < ApplicationController
     # end
 
     def set_incident
-        @victim = Victim.find_by(id: params[:victim_id]) ###### Review
+        # @victim = Victim.find_by(id: params[:victim_id]) ###### Review
         @incident = @victim.incidents.find(params[:incident_id])
         # @incident = @victim.incidents.find(params[:id])
 

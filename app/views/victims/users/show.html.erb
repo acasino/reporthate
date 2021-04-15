@@ -22,15 +22,21 @@
             Preferred Langauge: <%= incident.language %><br>
             Description:  <%= incident.description %><br>
 
+            <%# ##ISSUE %>
+            <%= link_to "View Incident", victim_incidents_path(@victim) %><br>
+
             <%# Volunteer (if applicable): <%= incident.find_volunteer.name %> 
 
           </li>
         <% end %>
       <% else %>
         <li>No Reports Created</li>
+        <br>
       <% end %> 
     </ul>
 
+<%# <p><a href="incidents/new">Create New Incident Report</a></p> %>
+<p><%= link_to "Create a new Incident", new_victim_incidents_path(@victim) %></p>
 <p><%= link_to "Delete Your Profile", victim_path, method: "delete", data: { confirm: "Are you sure you want to delete your profile?" } %></p>
 
 

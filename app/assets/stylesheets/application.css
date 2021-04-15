@@ -28,20 +28,24 @@
     font-size: 1.2em;
     color: #c9edf5;
     text-transform: uppercase;
-    /* background-image: url(""); */
+    background-image: url(../stop_the_hate.png);
     background-position: center;
     background-size: cover;
   }
 
   nav a {
     text-decoration-line: none;
-    color: #d4d4d4;
+    color: #000000;
     margin: 0 .5em;
   }
 
   nav a:hover {
-    color: white;
+    color: rgb(172, 172, 172);
   }
+
+  nav img {
+    opacity: 0.5;
+  } 
 
   h1  {
     border-bottom: 1px solid;
