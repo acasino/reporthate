@@ -1,0 +1,20 @@
+<h2>Index: Your Reported Incidents</h2>
+    <ul>
+    <% if @victim.incidents.present? %>
+        <% @victim.incidents.each do |incident| %>
+          <li>
+            Location: <%= incident.location %><br>
+            Occurred: <%= incident.time_occurred %><br>
+            Request Translator: <%= incident.request_translator %><br>
+            Volunteer Contact Status: <%= incident.contact_status %><br>
+            Preferred Langauge: <%= incident.language %><br>
+            Description:  <%= incident.description %><br>
+
+            <%# Volunteer (if applicable): <%= incident.find_volunteer.name %> 
+
+          </li>
+        <% end %>
+      <% else %>
+        <li>No Reports Created</li>
+      <% end %> 
+    </ul>
