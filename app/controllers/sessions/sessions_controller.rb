@@ -18,7 +18,7 @@ class Sessions::SessionsController < ApplicationController
     end
 
     def omniauth
-        byebug
+    
         user_email = request.env['omniauth.auth']['info']['email']
         user_name = request.env['omniauth.auth']['info']['name']
         @volunteer = Volunteer.find_or_create_by(email: user_email) do |user|
