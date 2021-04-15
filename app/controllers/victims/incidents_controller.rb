@@ -30,7 +30,8 @@ class Victims::IncidentsController < ApplicationController
 
     def show
         # redirect_to victim_path(@victim)
-        redirect_to victim_incidents_path(@victim)
+        # redirect_to victim_incidents_path(@victim)
+        # redirect_to victim_incidents_path(@incident.id)
     end
 
     ### TEST
@@ -77,25 +78,29 @@ class Victims::IncidentsController < ApplicationController
     #     @victim = Victim.find(params[:victim_id])
     # end
 
-    # def verify_user
-    #     if current_user != Victim.find_by(id: params[:victim_id])
-    #         flash[:error] = "Something went wrong"
-    #         redirect_to victim_path(current_user.id)
-    #     else
-    #         @victim = Victim.find_by(id: params[:victim_id])
-    #     end
-    # end
-
     def verify_user
-        @victim = Victim.find_by(id: params[:victim_id])
-        if !@victim || current_user != @victim
-            flash[:error] = "Oops! Something went wrong"
-            redirect_to login_path
+        if current_user != Victim.find_by(id: params[:victim_id])
+            flash[:error] = "Something went wrong"
+            redirect_to victim_path(current_user.id)
+        else
+            @victim = Victim.find_by(id: params[:victim_id])
         end
     end
 
+    # def verify_user
+    #     @victim = Victim.find_by(id: params[:victim_id])
+    #     if !@victim || current_user != @victim
+    #         flash[:error] = "Oops! Something went wrong"
+    #         byebug
+    #         redirect_to login_path
+    #     end
+    # end
+
     def set_incident
-        @incident = @victim.incidents.find(params[:id])
+        @victim = Victim.find_by(id: params[:victim_id]) ###### Review
+        @incident = @victim.incidents.find(params[:incident_id])
+        # @incident = @victim.incidents.find(params[:id])
+
     end
 
 end

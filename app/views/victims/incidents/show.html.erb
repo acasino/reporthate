@@ -1,24 +1,15 @@
-<%# Should this be included? %>
-
 <h2>Your Reported Incident</h2>
     <ul>
-    <% if @victim.incidents.present? %>
-        <% @victim.incidents.each do |incident| %>
-          <li>
-            Location: <%= incident.location %><br>
-            Occurred: <%= incident.time_occurred %><br>
-            Request Translator: <%= incident.request_translator %><br>
-            Volunteer Contact Status: <%= incident.contact_status %><br>
-            Preferred Langauge: <%= incident.language %><br>
-            Description:  <%= incident.description %><br>
-
-            <%# Volunteer (if applicable): <%= incident.find_volunteer.name %> 
-
-          </li>
-        <% end %>
+    <% if @incident.present? %>
+            Location: <%= @incident.location %><br>
+            Occurred: <%= @incident.time_occurred %><br>
+            Request Translator: <%= @incident.request_translator %><br>
+            Volunteer Contact Status: <%= @incident.contact_status %><br>
+            Preferred Langauge: <%= @incident.language %><br>
+            Description:  <%= @incident.description %><br>
       <% else %>
-        <li>No Reports Created</li>
+        <li>Report Not Created</li>
       <% end %> 
     </ul>
-
-
+	
+<%= link_to "Edit Incident Details", edit_victim_incidents_path(@incident) %><br>
