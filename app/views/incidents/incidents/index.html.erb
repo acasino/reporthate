@@ -1,0 +1,16 @@
+<h1> All Incidents </h1>
+
+<% @incidents.each do |incident| %>
+          <div>
+          <li>
+            Location: <%= incident.location %><br>
+            Occurred: <%= incident.time_occurred %><br>
+            Request Translator: <%= incident.request_translator %><br>
+            Volunteer Contact Status: <%= incident.contact_status %><br>
+            Preferred Langauge: <%= incident.language %><br>
+            Description:  <%= incident.description %><br>
+
+            <%= link_to "View Incident", [@victim, incident] %><br>
+          </li>
+          </div>
+<% end %>
