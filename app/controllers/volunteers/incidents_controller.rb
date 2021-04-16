@@ -2,7 +2,7 @@ class Volunteers::IncidentsController < ApplicationController
     include VolunteersHelper
 
     before_action :verify_user
-    before_action :set_incident, only: [:show, :edit, :update, :destroy]
+    # before_action :set_incident, only: [:show, :edit, :update]
 
     def index
         @incidents = Incident.all
@@ -27,17 +27,17 @@ class Volunteers::IncidentsController < ApplicationController
     end
 
     def verify_user
-        if current_user != Victim.find_by(id: params[:victim_id])
+        if current_user != Volunteer.find_by(id: params[:volunteer_id])
             flash[:error] = "Something went wrong"
-            redirect_to victim_path(current_user.id)
+            redirect_to volunteer_path(current_user.id)
         else
-            @victim = Victim.find_by(id: params[:victim_id])
+            @volunteer = Volunteer.find_by(id: params[:volunteer_id])
         end
     end
 
-    def set_incident
-        @incident = @victim.incidents.find(params[:id])
-    end
+    # def set_incident
+    #     @incident = @victim.incidents.find(params[:id])
+    # end
 
 
 end
