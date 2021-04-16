@@ -55,7 +55,6 @@ class Victims::IncidentsController < ApplicationController
         # incident = Incident.find_by(id: params[:id])
         # incident.update(incident_params)
         @incident.update(incident_params)
-        byebug
         redirect_to victim_path(@victim)
         # redirect_to victim_incidents_path(@victim)
     end
