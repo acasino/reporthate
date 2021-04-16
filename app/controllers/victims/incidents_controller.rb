@@ -61,7 +61,6 @@ class Victims::IncidentsController < ApplicationController
     end
 
     def destroy
-        byebug
         @incident.destroy
         redirect_to victim_path(@victim)
     end

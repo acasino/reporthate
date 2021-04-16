@@ -1,12 +1,11 @@
 class Volunteers::IncidentsController < ApplicationController
     include VolunteersHelper
-    
-    def new
 
-    end
+    before_action :verify_user
+    before_action :set_incident, only: [:show, :edit, :update, :destroy]
 
-    def create
-
+    def index
+        @incidents = Incident.all
     end
 
     def show
@@ -21,18 +20,24 @@ class Volunteers::IncidentsController < ApplicationController
 
     end
 
-    def destroy
-
-    end
-
     private
 
     def incident_params
-
+        params.require(:incident).permit(:description, :location, :time_occurred, :request_translator, :contact_status, :language, :volunteer_id, :victim_id, :notes)
     end
 
     def verify_user
-        
+        if current_user != Victim.find_by(id: params[:victim_id])
+            flash[:error] = "Something went wrong"
+            redirect_to victim_path(current_user.id)
+        else
+            @victim = Victim.find_by(id: params[:victim_id])
+        end
     end
+
+    def set_incident
+        @incident = @victim.incidents.find(params[:id])
+    end
+
 
 end
