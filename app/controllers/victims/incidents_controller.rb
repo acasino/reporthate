@@ -29,6 +29,7 @@ class Victims::IncidentsController < ApplicationController
     end
 
     def show
+        byebug
         # redirect_to victim_path(@victim)
         # redirect_to victim_incidents_path(@victim)
         # redirect_to victim_incidents_path(@incident.id)
