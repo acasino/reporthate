@@ -11,7 +11,7 @@
             Description:  <%= incident.description %><br>
             <%# Volunteer (if applicable): <%= incident.find_volunteer.name %> 
             <%# ##### ISSUE %>
-            <%= link_to "View Incident", victim_incidents_path(@victim) %><br>
+            <%= link_to "View Incident", [@victim, incident] %><br>
 
           </li>
         <% end %>
