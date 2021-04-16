@@ -17,7 +17,7 @@
         <% end %>
       <% else %>
         <li>No Reports Created</li>
-        <a href="incidents/new">Create New Incident Report</a><br>
+            <%= link_to "Create a new Incident", new_victim_incident_path(@victim) %>
       <% end %> 
     </ul>
 

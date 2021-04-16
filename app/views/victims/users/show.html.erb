@@ -35,8 +35,7 @@
       <% end %> 
     </ul>
 
-<%# <p><a href="incidents/new">Create New Incident Report</a></p> %>
-<%# <%= link_to "Create a new Incident", new_victim_incidents_path(@victim)%>
+<p><%= link_to "Create a new Incident", new_victim_incident_path(@victim) %></p>
 <p><%= link_to "Delete Your Profile", victim_path, method: "delete", data: { confirm: "Are you sure you want to delete your profile?" } %></p>
 
 
