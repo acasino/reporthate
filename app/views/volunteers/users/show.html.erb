@@ -11,8 +11,28 @@
 
 <h2>Your Volunteered Incidents</h2>
     <ul>
+    <% if @volunteer.incidents.present? %>
+        <% @volunteer.incidents.each do |incident| %>
+          <li>
+            Location: <%= incident.location %><br>
+            Occurred: <%= incident.time_occurred %><br>
+            Request Translator: <%= incident.request_translator %><br>
+            Volunteer Contact Status: <%= incident.contact_status %><br>
+            Preferred Langauge: <%= incident.language %><br>
+            Description:  <%= incident.description %><br>
+            Notes:  <%= incident.notes %><br>
 
+            <%# <%= link_to "View Incident", incident_path(incident) %>
+            <%= link_to "View Incident", [@volunteer, incident] %><br>
+
+          </li>
+        <% end %>
+      <% else %>
+        <li>No Volunteered Incidents</li>
+        <br>
+      <% end %> 
     </ul>
+<p><%= link_to "View all Incidents", incidents_path %></p> <br>
 
 <p><%= link_to "Delete Your Profile", volunteer_path, method: "delete", data: { confirm: "Are you sure you want to delete your profile?" } %></p>
 

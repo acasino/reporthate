@@ -66,3 +66,26 @@
   li:hover {
     background-color: #d9f0f5;
   }
+
+  input[type='submit']:hover {
+    background-color: #8d8d8d;
+  }
+
+  textarea {
+    margin-top: 1.5em;
+    font-family: Roboto;
+    width: 200px;
+    height: 80px;
+  }
+
+  h1  {
+    color: #9f5c26;
+    border-bottom: 1px solid;
+    padding-bottom: .5em;
+  }
+
+  h2  {
+    margin-top: 1em;
+    /* text-transform: uppercase; */
+  }
+  

@@ -3,6 +3,7 @@
     <% if @victim.incidents.present? %>
         <% @victim.incidents.each do |incident| %>
           <li>
+            Incident Number: <%= incident.id %> <br>
             Location: <%= incident.location %><br>
             Occurred: <%= incident.time_occurred %><br>
             Request Translator: <%= incident.request_translator %><br>

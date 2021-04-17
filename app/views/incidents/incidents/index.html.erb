@@ -3,6 +3,7 @@
 <% @incidents.each do |incident| %>
           <div>
           <li>
+            Incident Number: <%= incident.id %> <br>
             Location: <%= incident.location %><br>
             Occurred: <%= incident.time_occurred %><br>
             Request Translator: <%= incident.request_translator %><br>
