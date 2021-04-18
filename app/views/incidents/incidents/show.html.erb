@@ -10,9 +10,8 @@ Description:  <%= @incident.description %><br>
 <br>
 
 <% if @incident.volunteer_id == nil%>
-<%#byebug%>
     <%= link_to "Volunteer?", incident_path(@incident, :incident => { :volunteer_id => current_user.id }), :method => :put, :confirm => "Are you sure?" %>
 <% elsif @incident.volunteer_id == current_user.id %>
-    <%= link_to "Update Incident Details", edit_volunteer_incident_path(@incident) %>
+    <%= link_to "Update Incident Details", edit_volunteer_incident_path(:volunteer_id => current_user.id, :incident_id => @incident.id) %>
 <% end %>
 
