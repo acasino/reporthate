@@ -7,14 +7,12 @@ Request Translator: <%= @incident.request_translator %><br>
 Volunteer Contact Status: <%= @incident.contact_status %><br>
 Preferred Langauge: <%= @incident.language %><br>
 Description:  <%= @incident.description %><br>
-
 <br>
 
-<% if session[:user_type] = 'volunteer' %>
-    <%= link_to "Volunteer?", volunteer_incident_path(@incident) %>
-<% elsif session[:user_type] = 'victim' %>
-    <%= link_to "Edit Incident Details", edit_victim_incident_path%>
-<% else %>
-    <%= link_to "View All Incidents", incidents_path %><br>
+<% if @incident.volunteer_id == nil%>
+<%#byebug%>
+    <%= link_to "Volunteer?", incident_path(@incident, :incident => { :volunteer_id => current_user.id }), :method => :put, :confirm => "Are you sure?" %>
+<% elsif @incident.volunteer_id == current_user.id %>
+    <%= link_to "Update Incident Details", edit_volunteer_incident_path(@incident) %>
 <% end %>
 

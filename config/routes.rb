@@ -38,7 +38,7 @@ Rails.application.routes.draw do
     resources :incidents, controller: 'volunteers/incidents'
   end
 
-  resources :incidents, controller: 'incidents/incidents', only: [:index, :show] do
+  resources :incidents, controller: 'incidents/incidents', only: [:index, :show, :update] do
     collection do
       get :not_yet_contacted
       get :time_occurred_desc

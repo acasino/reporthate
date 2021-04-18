@@ -3,7 +3,7 @@ class Incidents::IncidentsController < ApplicationController
 
     # before_action :set_user
     before_action :require_volunteer_login
-    before_action :set_incident, only: [:show]
+    before_action :set_incident, only: [:show, :update]
 
     def index
         @incidents = Incident.all
@@ -27,7 +27,16 @@ class Incidents::IncidentsController < ApplicationController
         render action: :index
     end
 
+    def update
+        @incident.update(incident_params)
+        redirect_to incident_path(@incident)
+    end
+
     private
+
+    def incident_params
+        params.require(:incident).permit(:volunteer_id, :notes)
+    end
 
     def set_incident
         @incident = Incident.find_by_id(params[:id])
