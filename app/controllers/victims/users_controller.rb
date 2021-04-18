@@ -42,7 +42,6 @@ class Victims::UsersController < ApplicationController
     end
 
     def set_victim
-        #setup if/else after session built for current_user
         if current_user != Victim.find_by(id: params[:id])
             flash[:error] = "Oops! Something went wrong"
             redirect_to login_path

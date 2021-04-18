@@ -29,23 +29,8 @@ class Victims::IncidentsController < ApplicationController
     end
 
     def show
-        # redirect_to victim_path(@victim)
-        # redirect_to victim_incidents_path(@victim)
-        # redirect_to victim_incidents_path(@incident.id)
     end
 
-    ### TEST
-    # def edit
-    #     if params[:victim_id]
-    #         if @victim.nil?
-    #             redirect_to login_path, flash: { error: "Incident not found. Please login"}
-    #         else
-    #             @victim = Victim.find_by(id: params[:victim_id])
-    #             redirect_to victim_path(@victim)
-    #             # @incident = @victim.incidents.build(user_id: current_user.id)
-    #         end
-    #     end
-    # end
     def edit
     end
 
@@ -66,17 +51,9 @@ class Victims::IncidentsController < ApplicationController
 
     private
 
-    # def incident_params
-    #     params.permit(:description, :location, :time_occurred, :request_translator, :contact_status, :language, :volunteer_id, :victim_id)
-    # end
-
     def incident_params
         params.require(:incident).permit(:description, :location, :time_occurred, :request_translator, :contact_status, :language, :volunteer_id, :victim_id)
     end
-
-    # def get_victim
-    #     @victim = Victim.find(params[:victim_id])
-    # end
 
     def verify_user
         if current_user != Victim.find_by(id: params[:victim_id])
@@ -87,20 +64,8 @@ class Victims::IncidentsController < ApplicationController
         end
     end
 
-    # def verify_user
-    #     @victim = Victim.find_by(id: params[:victim_id])
-    #     if !@victim || current_user != @victim
-    #         flash[:error] = "Oops! Something went wrong"
-    #         byebug
-    #         redirect_to login_path
-    #     end
-    # end
-
     def set_incident
-        # @victim = Victim.find_by(id: params[:victim_id]) ###### Review
-        # @incident = @victim.incidents.find(params[:incident_id])
         @incident = @victim.incidents.find(params[:id])
-
     end
 
 end

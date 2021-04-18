@@ -3,6 +3,7 @@ class Volunteers::IncidentsController < ApplicationController
 
     before_action :verify_user
     before_action :set_incident, only: [:show, :edit, :update]
+    before_action :set_victim, only: [:show, :edit, :update]
 
     def index
         @incidents = Incident.all
@@ -40,5 +41,8 @@ class Volunteers::IncidentsController < ApplicationController
         @incident = Incident.find_by(id: params[:id])
     end
 
+    def set_victim
+        @victim = Victim.find_by(id: @incident[:victim_id])
+    end
 
 end
