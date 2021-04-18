@@ -10,6 +10,7 @@
 <%= link_to "Edit your profile", edit_volunteer_path(@volunteer) %><br>
 
 <h2>Your Volunteered Incidents</h2>
+    <p> <%= @volunteered_count %> Incidents </p>
     <ul>
     <% if @volunteer.incidents.present? %>
         <% @volunteer.incidents.each do |incident| %>

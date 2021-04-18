@@ -17,6 +17,16 @@ class Incidents::IncidentsController < ApplicationController
         # end
     end
 
+    def not_yet_contacted
+        @incidents = Incident.not_yet_contacted
+        render action: :index
+    end
+
+    def time_occurred_desc
+        @incidents = Incident.time_occurred_desc
+        render action: :index
+    end
+
     private
 
     def set_incident

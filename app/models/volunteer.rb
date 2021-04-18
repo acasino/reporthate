@@ -10,4 +10,8 @@ class Volunteer < ApplicationRecord
     
     validates :password, confirmation: true, on: :create
 
+    def volunteered_count
+        Incident.all.where(volunteer_id: self.id).count
+    end
+
 end

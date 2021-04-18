@@ -22,7 +22,7 @@ class Volunteers::UsersController < ApplicationController
     end
 
     def show
-
+        @volunteered_count = @volunteer.volunteered_count
     end
 
     def update
