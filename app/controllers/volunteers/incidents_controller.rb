@@ -2,7 +2,7 @@ class Volunteers::IncidentsController < ApplicationController
     include VolunteersHelper
 
     before_action :verify_user
-    # before_action :set_incident, only: [:show, :edit, :update]
+    before_action :set_incident, only: [:show, :edit, :update]
 
     def index
         @incidents = Incident.all
@@ -13,11 +13,12 @@ class Volunteers::IncidentsController < ApplicationController
     end
 
     def edit
-        byebug
+        @incident = Incident.find_by(id: params[:incident_id])
     end
 
     def update
-
+        @incident.update(incident_params)
+        redirect_to volunteer_incident_path(@incident.id)
     end
 
     private
@@ -35,9 +36,9 @@ class Volunteers::IncidentsController < ApplicationController
         end
     end
 
-    # def set_incident
-    #     @incident = @victim.incidents.find(params[:id])
-    # end
+    def set_incident
+        @incident = Incident.find_by(id: params[:id])
+    end
 
 
 end

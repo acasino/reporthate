@@ -1,1 +1,17 @@
 <h1> Volunteer: View Incident </h1>
+    <ul>
+    <% if @incident.present? %>
+            Incident Number: <%= @incident.id %> <br>
+            Location: <%= @incident.location %><br>
+            Occurred: <%= @incident.time_occurred %><br>
+            Request Translator: <%= @incident.request_translator %><br>
+            Volunteer Contact Status: <%= @incident.contact_status %><br>
+            Preferred Langauge: <%= @incident.language %><br>
+            Description:  <%= @incident.description %><br>
+            Notes: <%= @incident.notes %><br>
+      <% else %>
+        <li>Report Not Created</li>
+      <% end %> 
+    </ul>
+	
+<%= link_to "Update Incident Details", edit_volunteer_incident_path(:volunteer_id => current_user.id, :incident_id => @incident.id) %>

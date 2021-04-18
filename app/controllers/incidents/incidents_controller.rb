@@ -22,6 +22,11 @@ class Incidents::IncidentsController < ApplicationController
         render action: :index
     end
 
+    def not_yet_assigned
+        @incidents = Incident.not_yet_assigned
+        render action: :index
+    end
+
     def time_occurred_desc
         @incidents = Incident.time_occurred_desc
         render action: :index
