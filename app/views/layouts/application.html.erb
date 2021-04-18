@@ -15,9 +15,11 @@
           <% if logged_in? %>
             <% if is_volunteer? %>
               <%= link_to "Home", volunteer_path(@current_user) %> |
-            <% end %>
+              <%= link_to "Incidents", incidents_path %> |
+              <% end %>
             <% if is_victim? %>
               <%= link_to "Home", victim_path(@current_user) %> |
+              <%= link_to "New Incident", new_victim_incident_path(@victim) %> |
             <% end %>
             <a href="/logout">Log Out</a>
           <% else %>
