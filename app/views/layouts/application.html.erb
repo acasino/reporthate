@@ -27,6 +27,13 @@
           <% end %>
         </nav>
 
+        <div id="content">
+          <% flash.each do |name, message| %>
+            <div class=<%= name %>>
+              <%= message %>
+            </div>
+          <% end %>
+
         <%= yield %>
 
         <div class="footer">
