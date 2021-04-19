@@ -19,7 +19,7 @@ class Volunteers::IncidentsController < ApplicationController
 
     def update
         @incident.update(incident_params)
-        redirect_to volunteer_incident_path(@incident.id)
+        redirect_to volunteer_path(@volunteer)
     end
 
     private
@@ -29,6 +29,7 @@ class Volunteers::IncidentsController < ApplicationController
     end
 
     def verify_user
+        byebug
         if current_user != Volunteer.find_by(id: params[:volunteer_id])
             flash[:error] = "Something went wrong"
             redirect_to volunteer_path(current_user.id)
@@ -46,3 +47,4 @@ class Volunteers::IncidentsController < ApplicationController
     end
 
 end
+
