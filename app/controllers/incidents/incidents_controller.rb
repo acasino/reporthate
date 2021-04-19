@@ -1,7 +1,6 @@
 class Incidents::IncidentsController < ApplicationController
     include IncidentsHelper
 
-    # before_action :set_user
     before_action :require_volunteer_login
     before_action :set_incident, only: [:show, :update]
     before_action :set_victim, only: [:show, :update]
@@ -44,7 +43,7 @@ class Incidents::IncidentsController < ApplicationController
     end
 
     def set_victim
-        @victim = Victim.find_by(id: @incident.vicim_id)
+        @victim = Victim.find_by(id: @incident.victim_id)
     end
 
 

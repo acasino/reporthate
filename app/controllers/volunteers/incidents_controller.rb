@@ -29,7 +29,6 @@ class Volunteers::IncidentsController < ApplicationController
     end
 
     def verify_user
-        byebug
         if current_user != Volunteer.find_by(id: params[:volunteer_id])
             flash[:error] = "Something went wrong"
             redirect_to volunteer_path(current_user.id)

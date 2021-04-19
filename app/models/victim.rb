@@ -7,7 +7,7 @@ class Victim < ApplicationRecord
 
     validates :name, :email, presence: true
     validates :email, uniqueness: { case_sensitive: false}
-    
+    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
     validates :password, confirmation: true, on: :create
 
 end

@@ -13,8 +13,6 @@ class Victims::IncidentsController < ApplicationController
             @incident = @victim.incidents.build
         else
             @incident = Incident.new
-            # @incident = @victim.incidents.build
-            # @incidents = @victim.incidents
         end
     end
 
@@ -22,7 +20,6 @@ class Victims::IncidentsController < ApplicationController
         @incident = @victim.incidents.build(incident_params)
         if @incident.save
             redirect_to victim_path(@incident.victim)
-            # redirect_to victim_incidents_path(@victim)
         else
             render :new
         end
@@ -34,14 +31,9 @@ class Victims::IncidentsController < ApplicationController
     def edit
     end
 
-    ### TEST
     def update
-        #need to find incident but it's nested
-        # incident = Incident.find_by(id: params[:id])
-        # incident.update(incident_params)
         @incident.update(incident_params)
         redirect_to victim_path(@victim)
-        # redirect_to victim_incidents_path(@victim)
     end
 
     def destroy
