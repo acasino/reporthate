@@ -8,6 +8,10 @@ class Incident < ApplicationRecord
   scope :not_yet_assigned, -> { where(:volunteer_id => nil) }
   scope :time_occurred_desc, -> { order(time_occurred: :desc)}
 
+  def self.search_by(search_term)
+    where("LOWER(location) LIKE :search_term OR LOWER(language) LIKE :search_term",
+      search_term: "%#{search_term.downcase}%")
+  end
 
 end
 

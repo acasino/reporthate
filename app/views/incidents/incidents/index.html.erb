@@ -1,9 +1,18 @@
 <h1> All Incidents </h1>
 
+<h2><strong> Refine Your Search </strong> </h2>
+
+<%= form_for "", url: incidents_path, role: "search", method: :get do %>
+<%= text_field_tag :search, @search_term, placeholder: "Search..."%>
+<% end %>
+
+<br>
+
+<h2><strong> Filter By </strong> </h2>
+
 <%= link_to "Not Yet Contacted", not_yet_contacted_incidents_path, class: "link"	  %>
 <%= link_to "Not Yet Assigned", not_yet_assigned_incidents_path, class: "link"	  %>
 <%= link_to "Sort By Time Occurred", time_occurred_desc_incidents_path, class: "link"	 %>
-
 
 <% @incidents.each do |incident| %>
           <div>

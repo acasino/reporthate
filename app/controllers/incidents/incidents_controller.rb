@@ -7,6 +7,10 @@ class Incidents::IncidentsController < ApplicationController
 
     def index
         @incidents = Incident.all
+        if params[:search]
+            @search_term = params[:search]
+            @incidents = @incidents.search_by(@search_term)
+        end
     end
 
     def show
