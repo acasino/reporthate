@@ -10,10 +10,6 @@ class Volunteers::IncidentsController < ApplicationController
         @incidents = Incident.all
     end
 
-    def show
-
-    end
-
     def edit
         @incident = Incident.find_by(id: params[:incident_id])
     end

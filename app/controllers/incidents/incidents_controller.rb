@@ -13,9 +13,7 @@ class Incidents::IncidentsController < ApplicationController
         end
     end
 
-    def show
-    end
-
+    
     def not_yet_contacted
         @incidents = Incident.not_yet_contacted
         render action: :index

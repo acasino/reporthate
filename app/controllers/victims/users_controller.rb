@@ -1,6 +1,7 @@
 class Victims::UsersController < ApplicationController
+    include VictimsHelper
 
-    before_action :require_victim_login    
+    before_action :require_victim_login, except: [:login, :new, :create]    
     before_action :set_victim, only: [:show, :edit, :update, :destroy]
 
     def new
@@ -22,9 +23,6 @@ class Victims::UsersController < ApplicationController
         redirect_to victim_path(current_user.id) 
     end
 
-    def show
-
-    end
 
     def update
         @victim.update(user_params)

@@ -26,11 +26,6 @@ class Victims::IncidentsController < ApplicationController
         end
     end
 
-    def show
-    end
-
-    def edit
-    end
 
     def update
         @incident.update(incident_params)
