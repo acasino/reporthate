@@ -1,5 +1,6 @@
 class Volunteers::UsersController < ApplicationController
     
+    before_action :require_volunteer_login
     before_action :set_volunteer, only: [:show, :edit, :update, :destroy]
 
     def new

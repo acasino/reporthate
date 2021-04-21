@@ -2,6 +2,7 @@ class Volunteers::IncidentsController < ApplicationController
     include VolunteersHelper
 
     before_action :verify_user
+    before_action :require_volunteer_login
     before_action :set_incident, only: [:show, :edit, :update]
     before_action :set_victim, only: [:show, :edit, :update]
 

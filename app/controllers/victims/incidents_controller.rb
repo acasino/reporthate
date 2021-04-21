@@ -1,6 +1,7 @@
 class Victims::IncidentsController < ApplicationController
     include VictimsHelper
 
+    before_action :require_victim_login
     before_action :verify_user
     before_action :set_incident, only: [:show, :edit, :update, :destroy]
 

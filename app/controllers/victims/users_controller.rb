@@ -1,5 +1,6 @@
 class Victims::UsersController < ApplicationController
 
+    before_action :require_victim_login    
     before_action :set_victim, only: [:show, :edit, :update, :destroy]
 
     def new
