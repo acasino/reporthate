@@ -6,6 +6,7 @@ class Victim < ApplicationRecord
     accepts_nested_attributes_for :incidents
 
     validates :name, :email, presence: true
+    validates :password, presence: true, on: :create
     validates :email, uniqueness: { case_sensitive: false}
     validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
     validates :password, confirmation: true, on: :create
